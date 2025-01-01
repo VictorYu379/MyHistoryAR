@@ -1,0 +1,10 @@
+Library/
+Temp/
+obj/
+build/
+Logs/
+
+**/*.meta
+
+**/.DS_Store
+.idea/
