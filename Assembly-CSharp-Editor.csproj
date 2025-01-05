@@ -1051,11 +1051,11 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/victoryu/Desktop/MyHistoryAR/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.XR.ARFoundation.Editor">
-      <HintPath>/Users/victoryu/Desktop/MyHistoryAR/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>/Users/victoryu/Desktop/MyHistoryAR/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.ARFoundation.Editor">
+      <HintPath>/Users/victoryu/Desktop/MyHistoryAR/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/victoryu/Desktop/MyHistoryAR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
