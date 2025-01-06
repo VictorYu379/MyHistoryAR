@@ -737,8 +737,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                     Touch touch = Input.GetTouch(0);
                     if (touch.phase == TouchPhase.Began)
                     {
-                        Debug.Log("hehe 1");
-                        // create the marker
+                        // enter the mode to move the selected object
                         EnterSelectedMode(touch.position);
                     }
                     else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
@@ -748,9 +747,7 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                     }
                     else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                     {
-                        Debug.Log("hehe 3");
-                        // Optionally, remove or finalize the marker when the touch ends
-                        // FinalizeMarker();
+                        // Exit the selection and put the object in place
                         ExitSelectedMode(touch.position);
                     }
                 }
@@ -795,49 +792,6 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
             }
         }
 
-        private void CreateMarker(Vector3 position)
-        {
-            // Raycast against detected planes.
-            List<ARRaycastHit> planeHitResults = new List<ARRaycastHit>();
-            RaycastManager.Raycast(
-                position, planeHitResults, TrackableType.Planes | TrackableType.FeaturePoint);
-            Pose hitPose = planeHitResults[0].pose;
-            
-            if (raycastMarker == null)
-            {
-                raycastMarker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                raycastMarker.transform.localScale = Vector3.one * 0.1f; // Adjust size of the sphere
-                raycastMarker.GetComponent<Renderer>().material = RaycastMarkerMaterial;
-            
-                // Set initial position and rotation of the sphere
-                raycastMarker.transform.position = hitPose.position;
-                raycastMarker.transform.rotation = hitPose.rotation;
-            }
-        }
-
-        private void UpdateMarkerPosition(Vector3 position)
-        {
-            // Perform raycast to get updated position
-            List<ARRaycastHit> planeHitResults = new List<ARRaycastHit>();
-            RaycastManager.Raycast(
-                position, planeHitResults, TrackableType.Planes | TrackableType.FeaturePoint);
-            
-            Pose hitPose = planeHitResults[0].pose;
-            
-            if (raycastMarker != null)
-            {
-                // Update the marker's position and rotation
-                raycastMarker.transform.position = hitPose.position;
-                raycastMarker.transform.rotation = hitPose.rotation;
-            }
-        }
-
-        private void FinalizeMarker()
-        {
-            Destroy(raycastMarker);
-            raycastMarker = null;
-        }
-
         private void EnterSelectedMode(Vector3 position)
         {
             // Cast a ray from the screen touch or from a specific position in world space
@@ -867,6 +821,12 @@ namespace Google.XR.ARCoreExtensions.Samples.Geospatial
                 if (hitInfo.collider != null)
                 {
                     hitInfo.transform.SetParent(originalParent);
+                    string logInfo =
+                        $"object name: {hitInfo.transform.gameObject.name}, \n" +
+                        $"object local position after move: {hitInfo.transform.localPosition}, \n" +
+                        $"object local rotation after move: ({hitInfo.transform.localEulerAngles.x}, {hitInfo.transform.localEulerAngles.y}, {hitInfo.transform.localEulerAngles.z})";
+                    Debug.Log(logInfo);
+                    SnackBarText.text = logInfo;
                 }
             }
         }
