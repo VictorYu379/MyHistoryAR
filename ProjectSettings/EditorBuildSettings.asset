@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TigerScene.unity
     guid: fdd2d99f7b4b843c685477058cb579aa
+  - enabled: 1
+    path: Assets/Scenes/TigerScene 1.unity
+    guid: eda8798a154fe4cdc8d54de68747af32
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: c7731c1e5317b4db8aabeb78b89d9277, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 3c41402e667314ea88eb2a1526809d2d, type: 2}

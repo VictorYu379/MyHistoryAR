@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Samples/ARCore Extensions/1.47.0/Geospatial Sample/Scripts/GeospatialAnchorHistory.cs" />
+    <Compile Include="Assets/Scripts/AppManager.cs" />
+    <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Scripts/GeospatialControllerLogic.cs" />
     <Compile Include="Assets/Samples/ARCore Extensions/1.47.0/Geospatial Sample/Scripts/SafeAreaScaler.cs" />
     <Compile Include="Assets/Scripts/GeospatialControllerInput.cs" />
+    <Compile Include="Assets/Scripts/InitializationManager.cs" />
     <Compile Include="Assets/Samples/ARCore Extensions/1.47.0/Geospatial Sample/Scripts/GeospatialController.cs" />
     <Compile Include="Assets/Scripts/GeospatialControllerCopy.cs" />
     <Compile Include="Assets/Scripts/GeospatialControllerFeedback.cs" />
